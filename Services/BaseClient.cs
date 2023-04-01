@@ -25,7 +25,7 @@ namespace Notes.Services
 
         public BaseClient()
         {
-            Client = new FirebaseClient("https://hackathon-practice-aaaf2-default-rtdb.europe-west1.firebasedatabase.app/");
+            Client = new FirebaseClient("https://challengr-db-default-rtdb.europe-west1.firebasedatabase.app/");
         }
 
     }
