@@ -1,37 +1,48 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModels="clr-namespace:Notes.ViewModels"
-             x:Class="Notes.Views.AllChallengesView"
-             Title="Your Notes"
-             NavigatedTo="ContentPage_NavigatedTo">
+<ContentPage
+    x:Class="Notes.Views.AllChallengesView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:Notes.ViewModels"
+    NavigatedTo="ContentPage_NavigatedTo">
+
     <ContentPage.BindingContext>
         <viewModels:ChallengesViewModel />
     </ContentPage.BindingContext>
-    
-    <!-- Add an item to the toolbar -->
+
+    <!--  Add an item to the toolbar  -->
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding NewCommand}" IconImageSource="{FontImage Glyph='+', Color=White, Size=22}" />
+        <ToolbarItem
+            Command="{Binding NewCommand}"
+            IconImageSource="{FontImage Glyph='+',
+                                        Color=White,
+                                        Size=22}"
+            Text="Add" />
     </ContentPage.ToolbarItems>
 
-    <!-- Display notes in a list -->
-    <CollectionView x:Name="notesCollection" x:FieldModifier="internal"
-                    ItemsSource="{Binding AllNotes}"
-                    Margin="20"
-                    SelectionMode="Single"
-                    SelectionChangedCommand="{Binding SelectNoteCommand}"
-                    SelectionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=SelectedItem}">
-        <!-- Designate how the collection of items are laid out -->
+    <!--  Display notes in a list  -->
+    <CollectionView
+        x:Name="notesCollection"
+        Margin="20"
+        x:FieldModifier="internal"
+        ItemsSource="{Binding AllNotes}"
+        SelectionChangedCommand="{Binding SelectNoteCommand}"
+        SelectionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=SelectedItem}"
+        SelectionMode="Single">
+        <!--  Designate how the collection of items are laid out  -->
         <CollectionView.ItemsLayout>
-            <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+            <LinearItemsLayout ItemSpacing="10" Orientation="Vertical" />
         </CollectionView.ItemsLayout>
 
-        <!-- Define the appearance of each item in the list -->
+        <!--  Define the appearance of each item in the list  -->
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <StackLayout>
-                    <Label Text="{Binding Text}" FontSize="22"/>
-                    <Label Text="{Binding Date}" FontSize="14" TextColor="Silver"/>
+                    <Label FontSize="22" Text="{Binding Text}" />
+                    <Label
+                        FontSize="14"
+                        Text="{Binding Date}"
+                        TextColor="Silver" />
                 </StackLayout>
             </DataTemplate>
         </CollectionView.ItemTemplate>

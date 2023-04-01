@@ -1,27 +1,273 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModels="clr-namespace:Notes.ViewModels"
-             x:Class="Notes.Views.HomeView">
+<ContentPage
+    x:Class="Notes.Views.HomeView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Notes.Components"
+    xmlns:viewModels="clr-namespace:Notes.ViewModels"
+    Title="">
+
     <ContentPage.BindingContext>
         <viewModels:HomeViewModel />
     </ContentPage.BindingContext>
-    
-    
-    <VerticalStackLayout Padding="36">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="24"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
 
-            <Label Text="Welcome"/>
+    <ScrollView>
+        <VerticalStackLayout Padding="36">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="24" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="32" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="24" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="24" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-            <Label Grid.Row="2" Text="{Binding CurrentUser.Name, UpdateSourceEventName=PropertyChanged}"/>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
 
-        </Grid>
-        
-    </VerticalStackLayout>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="8" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Label
+                            Grid.Row="0"
+                            FontAttributes="Bold"
+                            FontFamily="SF Pro Display"
+                            FontSize="32"
+                            Text="{Binding Greeting}"
+                            TextColor="Black" />
+
+                        <Label
+                            Grid.Row="2"
+                            FontAttributes="None"
+                            FontFamily="SF Pro Display"
+                            FontSize="24"
+                            Text="Pick your next challenge!"
+                            TextColor="Gray" />
+                    </Grid>
+
+                    <Ellipse
+                        Grid.Column="2"
+                        Fill="Black"
+                        HeightRequest="48"
+                        Opacity="0.2"
+                        WidthRequest="48" />
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="8" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="8" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="8" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="8" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border
+                            Grid.Column="0"
+                            Padding="16,8"
+                            Background="#10000000"
+                            StrokeShape="RoundRectangle 8"
+                            StrokeThickness="0">
+                            <Label
+                                FontAttributes="Bold"
+                                FontFamily="SF Pro Display"
+                                FontSize="14"
+                                Text="Time trial" />
+                        </Border>
+
+                        <Border
+                            Grid.Column="2"
+                            Padding="16,8"
+                            Background="#10000000"
+                            StrokeShape="RoundRectangle 8"
+                            StrokeThickness="0">
+                            <Label
+                                FontAttributes="Bold"
+                                FontFamily="SF Pro Display"
+                                FontSize="14"
+                                Text="Sprint" />
+                        </Border>
+
+                        <Border
+                            Grid.Column="4"
+                            Padding="16,8"
+                            Background="#10000000"
+                            StrokeShape="RoundRectangle 8"
+                            StrokeThickness="0">
+                            <Label
+                                FontAttributes="Bold"
+                                FontFamily="SF Pro Display"
+                                FontSize="14"
+                                Text="Hiking" />
+                        </Border>
+
+                        <Border
+                            Grid.Column="6"
+                            Padding="16,8"
+                            Background="#10000000"
+                            StrokeShape="RoundRectangle 8"
+                            StrokeThickness="0">
+                            <Label
+                                FontAttributes="Bold"
+                                FontFamily="SF Pro Display"
+                                FontSize="14"
+                                Text="Diving" />
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="8" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border
+                            Grid.Column="0"
+                            Padding="16,8"
+                            Background="#10000000"
+                            StrokeShape="RoundRectangle 8"
+                            StrokeThickness="0">
+                            <Label
+                                FontAttributes="Bold"
+                                FontFamily="SF Pro Display"
+                                FontSize="14"
+                                Text="Puzzle" />
+                        </Border>
+
+                        <Border
+                            Grid.Column="2"
+                            Padding="16,8"
+                            Background="#10000000"
+                            StrokeShape="RoundRectangle 8"
+                            StrokeThickness="0">
+                            <Label
+                                FontAttributes="Bold"
+                                FontFamily="SF Pro Display"
+                                FontSize="14"
+                                Text="Maze" />
+                        </Border>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="16" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            Grid.Column="0"
+                            FontAttributes="Bold"
+                            FontFamily="SF Pro Display"
+                            FontSize="24"
+                            Text="Sponsored Challenges" />
+
+                        <Grid Grid.Column="2">
+                            <Path
+                                Data="M12 22.5C17.523 22.5 22 18.023 22 12.5C22 6.977 17.523 2.5 12 2.5C6.477 2.5 2 6.977 2 12.5C2 18.023 6.477 22.5 12 22.5Z"
+                                Fill="#808080"
+                                HeightRequest="24"
+                                Opacity="0.4"
+                                WidthRequest="24" />
+                            <Path
+                                Data="M12 15.51C11.81 15.51 11.62 15.44 11.47 15.29L7.93999 11.76C7.80051 11.6189 7.72229 11.4284 7.72229 11.23C7.72229 11.0316 7.80051 10.8411 7.93999 10.7C8.22999 10.41 8.70999 10.41 8.99999 10.7L12 13.7L15 10.7C15.29 10.41 15.77 10.41 16.06 10.7C16.35 10.99 16.35 11.47 16.06 11.76L12.53 15.29C12.38 15.44 12.19 15.51 12 15.51Z"
+                                Fill="#808080"
+                                HeightRequest="24"
+                                WidthRequest="24" />
+                        </Grid>
+                    </Grid>
+
+                    <controls:SponsoredChallenges Grid.Row="2" HeightRequest="176" />
+
+                </Grid>
+
+                <Grid Grid.Row="6">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="16" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            Grid.Column="0"
+                            FontAttributes="Bold"
+                            FontFamily="SF Pro Display"
+                            FontSize="24"
+                            Text="Near Me" />
+
+                        <Grid Grid.Column="2">
+                            <Path
+                                Data="M12 22.5C17.523 22.5 22 18.023 22 12.5C22 6.977 17.523 2.5 12 2.5C6.477 2.5 2 6.977 2 12.5C2 18.023 6.477 22.5 12 22.5Z"
+                                Fill="#808080"
+                                HeightRequest="24"
+                                Opacity="0.4"
+                                WidthRequest="24" />
+                            <Path
+                                Data="M12 15.51C11.81 15.51 11.62 15.44 11.47 15.29L7.93999 11.76C7.80051 11.6189 7.72229 11.4284 7.72229 11.23C7.72229 11.0316 7.80051 10.8411 7.93999 10.7C8.22999 10.41 8.70999 10.41 8.99999 10.7L12 13.7L15 10.7C15.29 10.41 15.77 10.41 16.06 10.7C16.35 10.99 16.35 11.47 16.06 11.76L12.53 15.29C12.38 15.44 12.19 15.51 12 15.51Z"
+                                Fill="#808080"
+                                HeightRequest="24"
+                                WidthRequest="24" />
+                        </Grid>
+                    </Grid>
+
+                    <controls:ChallengeComponent Grid.Row="2" />
+
+                </Grid>
+
+                <Grid Grid.Row="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="16" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label
+                        Grid.Row="0"
+                        FontAttributes="Bold"
+                        FontFamily="SF Pro Display"
+                        FontSize="24"
+                        Text="Leaderboards" />
+
+                </Grid>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>

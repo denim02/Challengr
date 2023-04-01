@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 namespace Notes.ViewModels;
 
-internal class ChallengeViewModel : IQueryAttributable
+internal class ChallengeViewModel : BaseViewModel
 {
     public ObservableCollection<HomeViewModel> AllNotes { get; private set; }
     public ICommand NewCommand { get; }

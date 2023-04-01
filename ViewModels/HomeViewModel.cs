@@ -1,5 +1,6 @@
 ﻿using Notes.Models;
 using Notes.Services;
+using Notes.Stores;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,48 +13,79 @@ namespace Notes.ViewModels
     public class HomeViewModel : BaseViewModel
     {
         private readonly BaseClient _client;
-        private readonly UserService _userService;
+        private readonly AccountServices _accountServices;
+        private readonly ChallengeServices _challengeServices;
 
-        private string _name;
-        public string Name
+
+        private Account _currentAccount;
+        public Account CurrentAccount
         {
             get
             {
-                return _name;
+                return _currentAccount;
             }
             set
             {
-                _name = value;
-                OnPropertyChanged(nameof(Name));
+                _currentAccount = value;
+                OnPropertyChanged(nameof(CurrentAccount));
             }
         }
 
-        private User _currentUser;
-        public User CurrentUser
+        private string _greeting = "Welcome, ";
+        public string Greeting
         {
             get
             {
-                return _currentUser;
+                return _greeting;
             }
             set
             {
-                _currentUser = value;
-                OnPropertyChanged(nameof(CurrentUser));
+                _greeting = value;
+                OnPropertyChanged(nameof(Greeting));
             }
         }
+
+
+        public ObservableCollection<Challenges> UsersChallenges { get; set; }
+
+        public ObservableCollection<Challenges> SponsoredChallenges { get; set; }
+
 
         public HomeViewModel()
         {
             _client = new BaseClient();
-            _userService = new UserService(_client);
+            _accountServices = new AccountServices(_client);
+            _challengeServices = new ChallengeServices(_client);
 
-            GetUsers();
-            
+            _currentAccount = new Account();
+            UsersChallenges = new ObservableCollection<Challenges>();
+            SponsoredChallenges= new ObservableCollection<Challenges>();
+
+            GetAccount();
+            GetAllChallenges();
         }
 
-        public async void GetUsers()
+        private async void GetAccount()
         {
-            CurrentUser = await _userService.GetUser("user_1");
+            CurrentAccount = await _accountServices.GetAccount("account_1");
+            Greeting = Greeting + $"{CurrentAccount.User.FirstName}";
+        }
+
+        private async void GetAllChallenges()
+        {
+            IEnumerable<Challenges> challenges = await _challengeServices.GetAllChallenges();
+
+            UsersChallenges.Clear();
+            SponsoredChallenges.Clear();
+            foreach (Challenges challenge in challenges)
+            {
+                UsersChallenges.Add(challenge);
+
+                if (challenge.IsActive)
+                {
+                    SponsoredChallenges.Add(challenge);
+                }
+            }
         }
     }
 }

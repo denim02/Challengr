@@ -5,9 +5,9 @@ public class Challenges : DomainObject
     public User AccountHolder { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }
-    public (double, double) StartLocation { get; set; }
-    public (double, double) Endlocation { get; set; }
-    public TimeSpan AvailabilityRange { get; set; }
+    public double[] StartLocation { get; set; }
+    public double[] Endlocation { get; set; }
+    public DateTime[] AvailabilityRange { get; set; }
     public double Duration { get; set; }
     public string Difficulty { get; set; }
     public double Rating { get; set; }

@@ -55,6 +55,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Components\SponsoredChallenges.xaml.cs">
+	    <DependentUpon>SponsoredChallenges.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Components\ChallengeComponent.xaml.cs">
+	    <DependentUpon>ChallengeComponent.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\AllChallengesView.xaml.cs">
 	    <DependentUpon>AllChallengesView.xaml</DependentUpon>
 	  </Compile>
@@ -67,6 +73,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Components\SponsoredChallenges.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Components\ChallengeComponent.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\HomeView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -77,5 +89,7 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerExceptionNotesHideInfoBar="True" XamarinHotReloadDebuggerTimeoutExceptionNotesHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>
