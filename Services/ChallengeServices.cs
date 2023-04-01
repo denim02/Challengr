@@ -1,5 +1,6 @@
 ﻿using Firebase.Database.Query;
 using Notes.Models;
+using Notes.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -26,7 +27,7 @@ namespace Notes.Services
                 .OnceSingleAsync<Challenges>();
         }
 
-        public async Task<ObservableCollection<Challenges>> GetAllChallenges()
+        public async Task<IEnumerable<Challenges>> GetAllChallenges()
         {
             ObservableCollection<Challenges> challengesList = new ObservableCollection<Challenges>();
 

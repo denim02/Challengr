@@ -4,27 +4,327 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:Notes.ViewModels"
-    Title="">
+    Title="AUBG Time Trial">
 
-    <ContentPage.BindingContext>
-        <viewModels:ChallengeViewModel />
-    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="24" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="24" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-    <VerticalStackLayout Padding="36">
-        <Editor
-            x:Name="TextEditor"
-            HeightRequest="100"
-            Placeholder="Enter your note"
-            Text="{Binding Text}" />
+            <!--  Map  -->
+            <Border
+                Grid.Row="0"
+                Background="Black"
+                HeightRequest="430"
+                StrokeShape="RoundRectangle 0, 0, 40, 40"
+                StrokeThickness="0"
+                WidthRequest="390" />
 
-        <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
-            <Button Command="{Binding SaveCommand}" Text="Save" />
 
-            <Button
-                Grid.Column="1"
-                Command="{Binding DeleteCommand}"
-                Text="Delete" />
+            <!--  Details  -->
+            <Grid Grid.Row="2" WidthRequest="318">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="16" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
+                <!--  Navigation  -->
+                <Border
+                    Grid.Column="0"
+                    Background="Black"
+                    HeightRequest="48"
+                    StrokeShape="RoundRectangle 16"
+                    StrokeThickness="0"
+                    WidthRequest="48">
+                    <Path />
+                </Border>
+
+                <Border
+                    Grid.Column="2"
+                    Background="Black"
+                    HeightRequest="48"
+                    StrokeShape="RoundRectangle 16"
+                    StrokeThickness="0"
+                    WidthRequest="48">
+                    <Path />
+                </Border>
+
+                <Border
+                    Grid.Column="4"
+                    Padding="16,8"
+                    Background="#EA3C11"
+                    HeightRequest="48"
+                    StrokeShape="RoundRectangle 16"
+                    StrokeThickness="0"
+                    WidthRequest="136">
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="SF Pro Display"
+                        FontSize="16"
+                        HorizontalTextAlignment="Center"
+                        Text="Get Directions"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
+                </Border>
+                <!--    -->
+            </Grid>
+
+            <!--  Navigation  -->
+            <Grid Grid.Row="4" WidthRequest="318">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="16" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="16" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="12" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Path Grid.Column="0" />
+
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="2" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Label
+                                Grid.Row="0"
+                                FontAttributes="Bold"
+                                FontFamily="SF Pro Display"
+                                FontSize="16"
+                                Text="Starting location"
+                                TextColor="Black" />
+
+                            <Label
+                                Grid.Row="2"
+                                FontAttributes="None"
+                                FontFamily="SF Pro Display"
+                                FontSize="12"
+                                Text="NDK, Sofia, Bulgaria"
+                                TextColor="Gray" />
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="12" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Path Grid.Column="0" />
+
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="2" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Label
+                                Grid.Row="0"
+                                FontAttributes="Bold"
+                                FontFamily="SF Pro Display"
+                                FontSize="16"
+                                Text="Available date"
+                                TextColor="Black" />
+
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="3" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="3" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label
+                                    Grid.Column="0"
+                                    FontAttributes="None"
+                                    FontFamily="SF Pro Display"
+                                    FontSize="12"
+                                    Text="Mar 31"
+                                    TextColor="Gray" />
+
+                                <Border
+                                    Grid.Column="2"
+                                    Background="Gray"
+                                    HeightRequest="8"
+                                    StrokeShape="RoundRectangle 5"
+                                    WidthRequest="8" />
+
+                                <Label
+                                    Grid.Column="4"
+                                    FontAttributes="None"
+                                    FontFamily="SF Pro Display"
+                                    FontSize="12"
+                                    Text="Apr 02"
+                                    TextColor="Gray" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Row="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="12" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Path Grid.Column="0" />
+
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="2" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Label
+                                Grid.Row="0"
+                                FontAttributes="Bold"
+                                FontFamily="SF Pro Display"
+                                FontSize="16"
+                                Text="Duration"
+                                TextColor="Black" />
+
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="3" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="3" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label
+                                    Grid.Column="0"
+                                    FontAttributes="None"
+                                    FontFamily="SF Pro Display"
+                                    FontSize="12"
+                                    Text="1h"
+                                    TextColor="Gray" />
+
+                                <Border
+                                    Grid.Column="2"
+                                    Background="Gray"
+                                    HeightRequest="8"
+                                    StrokeShape="RoundRectangle 5"
+                                    WidthRequest="8" />
+
+                                <Label
+                                    Grid.Column="4"
+                                    FontAttributes="None"
+                                    FontFamily="SF Pro Display"
+                                    FontSize="12"
+                                    Text="30 min"
+                                    TextColor="Gray" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="27" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="12" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Path Grid.Column="0" />
+
+                        <Label
+                            Grid.Column="0"
+                            FontAttributes="Bold"
+                            FontFamily="SF Pro Display"
+                            FontSize="16"
+                            Text="3.5"
+                            TextColor="Gray" />
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="2" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Label
+                            Grid.Row="0"
+                            FontAttributes="Bold"
+                            FontFamily="SF Pro Display"
+                            FontSize="16"
+                            Text="Difficulty"
+                            TextColor="Black" />
+
+                        <Label
+                            Grid.Row="2"
+                            FontAttributes="None"
+                            FontFamily="SF Pro Display"
+                            FontSize="12"
+                            Text="Intermediate"
+                            TextColor="Gray" />
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="6" WidthRequest="318">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="12" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label
+                    Grid.Row="0"
+                    FontAttributes="Bold"
+                    FontFamily="SF Pro Display"
+                    FontSize="16"
+                    Text="Description"
+                    TextColor="Black" />
+
+                <Label
+                    Grid.Row="2"
+                    FontAttributes="None"
+                    FontFamily="SF Pro Display"
+                    FontSize="12"
+                    Text="Smth smth here"
+                    TextColor="Gray" />
+
+            </Grid>
         </Grid>
     </VerticalStackLayout>
 </ContentPage>

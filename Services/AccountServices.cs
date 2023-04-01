@@ -19,18 +19,10 @@ namespace Notes.Services
         }
         public async Task<Account> GetAccount(string id)
         {
-            try
-            {
-                return await _baseServices.Client
-                        .Child("accounts")
-                        .Child(id)
-                        .OnceSingleAsync<Account>();
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
+            return await _baseServices.Client
+                    .Child("accounts")
+                    .Child(id)
+                    .OnceSingleAsync<Account>();
         }
 
         public async Task<ObservableCollection<Account>> GetAllAccounts()
