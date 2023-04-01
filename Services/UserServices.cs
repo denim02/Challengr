@@ -22,10 +22,21 @@ namespace Notes.Services
 
         public async Task<User> GetUser(string id)
         {
-            return await _baseServices.Client
-                .Child("users")
-                .Child(id)
-                .OnceSingleAsync<User>();
+            var userRef = _baseServices.Client.Child("users").Child(id);
+            var userData = new User();
+
+            try
+            {
+               userData = await userRef.OnceSingleAsync<User>();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw;
+            }
+
+            return userData;
+                
         }
 
         public async Task<ObservableCollection<User>> GetAllUsers()

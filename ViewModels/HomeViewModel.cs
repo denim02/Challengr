@@ -53,7 +53,7 @@ namespace Notes.ViewModels
 
         public async void GetUsers()
         {
-            CurrentUser = await _userService.GetUser("denimastori02");
+            CurrentUser = await _userService.GetUser("user_1");
         }
     }
 }
