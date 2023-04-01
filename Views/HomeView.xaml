@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Notes.ViewModels"
+             x:Class="Notes.Views.HomeView">
+    <ContentPage.BindingContext>
+        <viewModels:HomeViewModel />
+    </ContentPage.BindingContext>
+    
+    
+    <VerticalStackLayout Padding="36">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="24"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Text="Welcome"/>
+
+            <Label Grid.Row="2" Text="{Binding CurrentUser.Name, UpdateSourceEventName=PropertyChanged}"/>
+
+        </Grid>
+        
+    </VerticalStackLayout>
+
+</ContentPage>
