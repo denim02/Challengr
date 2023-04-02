@@ -18,9 +18,9 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="24" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="32" />
+                    <RowDefinition Height="48" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="24" />
+                    <RowDefinition Height="48" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="24" />
                     <RowDefinition Height="Auto" />
@@ -36,7 +36,7 @@
                     <Grid Grid.Column="0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
-                            <RowDefinition Height="8" />
+                            <RowDefinition Height="4" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
 
@@ -57,12 +57,28 @@
                             TextColor="Gray" />
                     </Grid>
 
-                    <Ellipse
-                        Grid.Column="2"
-                        Fill="Black"
-                        HeightRequest="48"
-                        Opacity="0.2"
-                        WidthRequest="48" />
+                    <Grid Grid.Column="2">
+                        <Ellipse
+                            Grid.Column="2"
+                            Fill="Black"
+                            HeightRequest="48"
+                            Opacity="0.1"
+                            WidthRequest="48" />
+
+                        <Grid>
+                            <Path
+                                Data="M15.7523 3.16666C12.3131 3.16666 9.51703 6.00666 9.51703 9.49999C9.51703 12.9267 12.1555 15.7 15.5948 15.82C15.6998 15.8067 15.8048 15.8067 15.8836 15.82H15.9755C17.5892 15.7653 19.1188 15.0753 20.2408 13.8959C21.3628 12.7164 21.9892 11.14 21.9876 9.49999C21.9876 6.00666 19.1916 3.16666 15.7523 3.16666Z"
+                                Fill="#808080"
+                                HeightRequest="32"
+                                Opacity="0.4"
+                                WidthRequest="32" />
+                            <Path
+                                Data="M22.4208 19.3653C18.7584 16.8853 12.7856 16.8853 9.09696 19.3653C7.42984 20.4987 6.51096 22.032 6.51096 23.672C6.51096 25.312 7.42984 26.832 9.08384 27.952C10.9216 29.2053 13.337 29.832 15.7523 29.832C18.1677 29.832 20.583 29.2053 22.4208 27.952C24.0748 26.8187 24.9937 25.2987 24.9937 23.6453C24.9806 22.0053 24.0748 20.4853 22.4208 19.3653Z"
+                                Fill="#808080"
+                                HeightRequest="32"
+                                WidthRequest="32" />
+                        </Grid>
+                    </Grid>
                 </Grid>
 
                 <Grid Grid.Row="2">
@@ -86,7 +102,7 @@
                         <Border
                             Grid.Column="0"
                             Padding="16,8"
-                            Background="#10000000"
+                            Background="#50EA3C11"
                             StrokeShape="RoundRectangle 8"
                             StrokeThickness="0">
                             <Label
@@ -99,7 +115,7 @@
                         <Border
                             Grid.Column="2"
                             Padding="16,8"
-                            Background="#10000000"
+                            Background="#50EA3C11"
                             StrokeShape="RoundRectangle 8"
                             StrokeThickness="0">
                             <Label
@@ -112,7 +128,7 @@
                         <Border
                             Grid.Column="4"
                             Padding="16,8"
-                            Background="#10000000"
+                            Background="#50EA3C11"
                             StrokeShape="RoundRectangle 8"
                             StrokeThickness="0">
                             <Label
@@ -125,7 +141,7 @@
                         <Border
                             Grid.Column="6"
                             Padding="16,8"
-                            Background="#10000000"
+                            Background="#50EA3C11"
                             StrokeShape="RoundRectangle 8"
                             StrokeThickness="0">
                             <Label
@@ -146,7 +162,7 @@
                         <Border
                             Grid.Column="0"
                             Padding="16,8"
-                            Background="#10000000"
+                            Background="#50EA3C11"
                             StrokeShape="RoundRectangle 8"
                             StrokeThickness="0">
                             <Label
@@ -159,7 +175,7 @@
                         <Border
                             Grid.Column="2"
                             Padding="16,8"
-                            Background="#10000000"
+                            Background="#50EA3C11"
                             StrokeShape="RoundRectangle 8"
                             StrokeThickness="0">
                             <Label
@@ -248,22 +264,6 @@
                     </Grid>
 
                     <controls:ChallengeComponent Grid.Row="2" />
-
-                </Grid>
-
-                <Grid Grid.Row="8">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="16" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <Label
-                        Grid.Row="0"
-                        FontAttributes="Bold"
-                        FontFamily="SF Pro Display"
-                        FontSize="24"
-                        Text="Leaderboards" />
 
                 </Grid>
             </Grid>

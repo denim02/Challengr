@@ -308,4 +308,9 @@ public partial class ChallengeView : ContentPage
             await ShowAlert(ex.Message);
         }
     }
+
+    private async void Button_Clicked(object sender, EventArgs e)
+    {
+        await Launcher.OpenAsync("https://goo.gl/maps/smj55cY2HR7QeVAN8");
+    }
 }
