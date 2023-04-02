@@ -7,7 +7,7 @@ using Notes.Views;
 
 namespace Notes.ViewModels;
 
-internal class AllChallengesViewModel : BaseViewModel
+public class AllChallengesViewModel : BaseViewModel
 {
     private readonly BaseClient _client;
     private readonly ChallengeServices _challengeServices;
@@ -27,7 +27,7 @@ internal class AllChallengesViewModel : BaseViewModel
         SelectChallengeCommand = new AsyncRelayCommand<Challenges>(SelectChallengeAsync);
     }
 
-    private async Task SelectChallengeAsync(Challenges challenge)
+    public async Task SelectChallengeAsync(Challenges challenge)
     {
         if (challenge != null)
         {
