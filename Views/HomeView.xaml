@@ -46,7 +46,7 @@
                             FontFamily="SF Pro Display"
                             FontSize="32"
                             Text="{Binding Greeting}"
-                            TextColor="Black" />
+                            TextColor="{AppThemeBinding Light=Black, Dark=White}" />
 
                         <Label
                             Grid.Row="2"

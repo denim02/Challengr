@@ -33,7 +33,7 @@
                     FontFamily="SF Pro Display"
                     FontSize="32"
                     Text="Your challenges"
-                    TextColor="Black" />
+                    TextColor="{AppThemeBinding Light=Black, Dark=White}" />
 
                 <Grid Grid.Row="2" WidthRequest="218">
                     <Grid.ColumnDefinitions>

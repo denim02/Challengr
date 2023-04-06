@@ -197,7 +197,7 @@
                                 FontFamily="SF Pro Display"
                                 FontSize="16"
                                 Text="Starting location"
-                                TextColor="Black" />
+                                TextColor="{AppThemeBinding Light=Black, Dark=White}" />
 
                             <Label
                                 Grid.Row="2"
@@ -250,7 +250,7 @@
                                 FontFamily="SF Pro Display"
                                 FontSize="16"
                                 Text="Available date"
-                                TextColor="Black" />
+                                TextColor="{AppThemeBinding Light=Black, Dark=White}" />
 
                             <Grid Grid.Row="2">
                                 <Grid.ColumnDefinitions>
@@ -321,7 +321,7 @@
                                 FontFamily="SF Pro Display"
                                 FontSize="16"
                                 Text="Duration"
-                                TextColor="Black" />
+                                TextColor="{AppThemeBinding Light=Black, Dark=White}" />
 
                             <Grid Grid.Row="2">
                                 <Grid.ColumnDefinitions>
@@ -394,7 +394,7 @@
                             FontFamily="SF Pro Display"
                             FontSize="16"
                             Text="Difficulty"
-                            TextColor="Black" />
+                            TextColor="{AppThemeBinding Light=Black, Dark=White}" />
 
                         <Label
                             Grid.Row="2"
@@ -420,7 +420,7 @@
                     FontFamily="SF Pro Display"
                     FontSize="16"
                     Text="Description"
-                    TextColor="Black" />
+                    TextColor="{AppThemeBinding Light=Black, Dark=White}" />
 
                 <Label
                     Grid.Row="2"
